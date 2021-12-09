@@ -1,7 +1,6 @@
 <?php
 
-/* $obj = json_decode(file_get_contents('https://flynn.boolean.careers/exercises/api/array/music'));
-echo var_dump($obj); */
+$obj = json_decode(file_get_contents('https://flynn.boolean.careers/exercises/api/array/music'), true);
 
 ?>
 
@@ -37,39 +36,28 @@ echo var_dump($obj); */
                                 <label class="text-white">Search for Type :</label>
                                 <select v-model="selected1" @change="showCD(selected1)">
                                     <option value="All" select>All</option>
-                                    <option v-for="genere in GeneriArrey" :key='genere.id' :value="genere">{{genere}}</option> <!------------------------- loop  -->
+                                    <?php foreach ($obj["response"] as $card) : ?>
+                                        <option class="<?=$card != $card ? '' : 'd-none'?>" value="<?= $card['genre']; ?> "><?= $card['genre']; ?></option>
+                                    <?php endforeach; ?>
                                 </select>
                             </form>
                         </div>
                     </div>
-                    <div class="container-fluid d-flex justify-content-center">
-                        <div class="container">
-                            <form>
-                                <label class="text-white">Search for Artist :</label>
-                                <select v-model="selected2" @change="showCD(selected2)">
-                                    <option value="All" select>All</option>
-                                    <option v-for="Card in CardArreyChild" :key='Card.id' :value="Card.author" > {{Card.author}}</option> <!------------------------- loop  -->
-                                </select>
-                            </form>
-                        </div>
-                    </div>
-                    <button @click="Research()" >Esegui ricerca</button>
-
                 </div>
 
                 <!-- ***********  cards  *********** -->
 
-                <div v-if='loaded == true' class="Cardbox">         <!------------------------- loop  -->                               
-                    <div class="card-model">
-                        <img :src="poster" alt="">
-                        <h4>{{title.toUpperCase()}}</h4>
-                        <span>{{author}}</span>
-                        <span>{{year}}</span>
-                    </div>
+                <div class="Cardbox">         <!------------------------- loop  -->                               
+                    <?php foreach ($obj["response"] as $card) : ?>
+                        <div class="card-model">
+                            <img src="<?= $card['poster']; ?>" alt="">
+                            <h4><?= strtoupper($card['title']); ?></h4>
+                            <span><?= $card['author']; ?></span>
+                            <span><?= $card['year']; ?></span>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
-                <div v-else class='loading-box'>
-                    <h3>Loading...</h3>
-                </div>
+
 
 
             </div>
@@ -77,3 +65,14 @@ echo var_dump($obj); */
     </main>
 </body>
 </html>
+
+
+<?php
+
+
+
+ 
+
+
+
+?>

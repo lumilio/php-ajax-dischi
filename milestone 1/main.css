@@ -1,7 +1,10 @@
 *{ margin: 0; padding: 0; box-sizing: border-box;}
 
-body{
+
+
+main{
     background-color: #1e2d3b;
+    height: calc(100vh - 45px);
 }
 
 header .container-fluid{
@@ -39,4 +42,36 @@ main select{
     width: 250px;
     margin: 5px;
     margin-left: 30px;
+}
+
+
+
+.card-model {
+    padding: 0.6rem;
+    padding-bottom: 1.3rem;
+    background-color: #2e3a46;
+    margin: 10px 5px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.card-model img{
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    object-position: center top;
+}
+.card-model h4{
+    font-size: medium;
+    max-width: 140px;
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.card-model span{
+    font-size: small;
+    color: #777c7f;
 }
