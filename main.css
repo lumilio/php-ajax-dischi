@@ -1,5 +1,9 @@
 *{ margin: 0; padding: 0; box-sizing: border-box;}
 
+body{
+    background-color: #1e2d3b;
+}
+
 header .container-fluid{
     background-color: #2e3a46;
 }
@@ -8,7 +12,9 @@ header img{
     margin: 5px;
 }
 
-
+button{
+    margin: 20px;
+}
 
 .Cardbox{
     display: flex;

@@ -17,11 +17,6 @@ echo var_dump($obj); */
     <link rel='stylesheet' href="main.css">
 </head>
 <body>
-
-
-
-
-
     <header>
         <div class="container-fluid d-flex justify-content-center">
             <div class="container">
@@ -29,59 +24,42 @@ echo var_dump($obj); */
             </div>
         </div>
     </header>
-
-
-
-
-
-
-
-
-
     <main>
         <div class="container-fluid d-flex justify-content-center">
             <div class="container d-flex align-items-center flex-column">
 
-
-
+                <!-- ***********  form  *********** -->
 
                 <div class="box-form container">
-
-                    <div class="container-fluid d-flex justify-content-center">
+                    <div class="container-fluid d-flex justify-content-center">     
                         <div class="container">
                             <form>
                                 <label class="text-white">Search for Type :</label>
                                 <select v-model="selected1" @change="showCD(selected1)">
                                     <option value="All" select>All</option>
-                                    <option v-for="genere in GeneriArrey" :key='genere.id' :value="genere">{{genere}}</option>
+                                    <option v-for="genere in GeneriArrey" :key='genere.id' :value="genere">{{genere}}</option> <!------------------------- loop  -->
                                 </select>
                             </form>
                         </div>
                     </div>
-
                     <div class="container-fluid d-flex justify-content-center">
                         <div class="container">
                             <form>
                                 <label class="text-white">Search for Artist :</label>
                                 <select v-model="selected2" @change="showCD(selected2)">
                                     <option value="All" select>All</option>
-                                    <option v-for="Card in CardArreyChild" :key='Card.id' :value="Card.author" > {{Card.author}}</option>
+                                    <option v-for="Card in CardArreyChild" :key='Card.id' :value="Card.author" > {{Card.author}}</option> <!------------------------- loop  -->
                                 </select>
                             </form>
                         </div>
                     </div>
-
                     <button @click="Research()" >Esegui ricerca</button>
 
                 </div>
 
+                <!-- ***********  cards  *********** -->
 
-
-
-
-
-
-                <div v-if='loaded == true' class="Cardbox">                                        
+                <div v-if='loaded == true' class="Cardbox">         <!------------------------- loop  -->                               
                     <div class="card-model">
                         <img :src="poster" alt="">
                         <h4>{{title.toUpperCase()}}</h4>
@@ -94,17 +72,8 @@ echo var_dump($obj); */
                 </div>
 
 
-
-
-
-                
             </div>
         </div>
     </main>
-
-
-
-
-    
 </body>
 </html>
