@@ -1,0 +1,36 @@
+*{ margin: 0; padding: 0; box-sizing: border-box;}
+
+header .container-fluid{
+    background-color: #2e3a46;
+}
+header img{
+    width: 35px;
+    margin: 5px;
+}
+
+
+
+.Cardbox{
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.box-form{
+    margin-top: 30px;
+}
+.loading-box{
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.loading-box h3{
+    color: white;
+}
+
+main select{
+    width: 250px;
+    margin: 5px;
+    margin-left: 30px;
+}
