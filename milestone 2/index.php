@@ -1,8 +1,3 @@
-<?php
-
-$obj = json_decode(file_get_contents('https://flynn.boolean.careers/exercises/api/array/music'), true);
-
-?>
 
 
 <!DOCTYPE html>
@@ -16,63 +11,46 @@ $obj = json_decode(file_get_contents('https://flynn.boolean.careers/exercises/ap
     <link rel='stylesheet' href="main.css">
 </head>
 <body>
-    <header>
-        <div class="container-fluid d-flex justify-content-center">
-            <div class="container">
-                <img src="img/logo.png" alt="">
+    <div id="root">
+        <header>
+            <div class="container-fluid d-flex justify-content-center">
+                <div class="container">
+                    <img src="img/logo.png" alt="">
+                </div>
             </div>
-        </div>
-    </header>
-    <main>
-        <div class="container-fluid d-flex justify-content-center">
-            <div class="container d-flex align-items-center flex-column">
-
-                <!-- ***********  form  *********** -->
-
-                <div class="box-form container">
-                    <div class="container-fluid d-flex justify-content-center">     
-                        <div class="container">
-                            <form>
-                                <label class="text-white">Search for Type :</label>
-                                <select v-model="selected1" @change="showCD(selected1)">
-                                    <option value="All" select>All</option>
-                                    <?php foreach ($obj["response"] as $card) : ?>
-                                        <option class="<?=$card != $card ? '' : 'd-none'?>" value="<?= $card['genre']; ?> "><?= $card['genre']; ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </form>
+        </header>
+        <main>
+            <div class="container-fluid d-flex justify-content-center">
+                <div class="container d-flex align-items-center flex-column">
+                    <div class="box-form container">
+                        <div class="container-fluid d-flex justify-content-center">
+                            <div class="container">
+                                <form>
+                                    <label class="text-white">Search for Type :</label>
+                                    <select v-model="selected1" @change="showCD(selected1)">
+                                        <option value="All" select>All</option>
+                                        <option v-for="item in generi" :key='item.id' :value="item">{{item}}</option> <!------------------------- loop -->
+                                    </select>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Cardbox"> 
+                        <div v-for='item in dischi' :key="item.id" class="card-model">
+                            <img :src="item.poster" alt="">
+                            <h4>{{item.title.toUpperCase()}}</h4>
+                            <span>{{item.author}}</span>
+                            <span>{{item.year}}</span>
                         </div>
                     </div>
                 </div>
-
-                <!-- ***********  cards  *********** -->
-
-                <div class="Cardbox">         <!------------------------- loop  -->                               
-                    <?php foreach ($obj["response"] as $card) : ?>
-                        <div class="card-model">
-                            <img src="<?= $card['poster']; ?>" alt="">
-                            <h4><?= strtoupper($card['title']); ?></h4>
-                            <span><?= $card['author']; ?></span>
-                            <span><?= $card['year']; ?></span>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-
-
-
             </div>
-        </div>
-    </main>
+        </main>
+    </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js' integrity='sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw==' crossorigin='anonymous' referrerpolicy='no-referrer'></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
 
 
-<?php
-
-
-
- 
-
-
-
-?>
