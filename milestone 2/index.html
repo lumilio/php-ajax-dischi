@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +12,7 @@
 <body>
     <div id="root">
         <header>
-            <div class="container-fluid d-flex justify-content-center">
+            <div class="container-fluid d-flex justify-content-center">   <!------------ header  -->
                 <div class="container">
                     <img src="img/logo.png" alt="">
                 </div>
@@ -27,16 +26,16 @@
                             <div class="container">
                                 <form>
                                     <label class="text-white">Search for Type :</label>
-                                    <select v-model="selected1" @change="showCD(selected1)">
+                                    <select v-model="selected" @change="filterCD()">
                                         <option value="All" select>All</option>
-                                        <option v-for="item in generi" :key='item.id' :value="item">{{item}}</option> <!------------------------- loop -->
+                                        <option v-for="item in generi" :key='item.id' :value="item">{{item}}</option>   <!------------ input search  -->
                                     </select>
                                 </form>
                             </div>
                         </div>
                     </div>
                     <div class="Cardbox"> 
-                        <div v-for='item in dischi' :key="item.id" class="card-model">
+                        <div v-for='item in dischi_visibili' :key="item.id" class="card-model">  <!------------ card section  -->
                             <img :src="item.poster" alt="">
                             <h4>{{item.title.toUpperCase()}}</h4>
                             <span>{{item.author}}</span>

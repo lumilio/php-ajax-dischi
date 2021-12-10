@@ -1,8 +1,9 @@
 <?php
 
-$obj = json_decode(file_get_contents('https://flynn.boolean.careers/exercises/api/array/music'), true);
+$obj = json_decode(file_get_contents('https://flynn.boolean.careers/exercises/api/array/music'));
 
 ?>
+
 
 
 <!DOCTYPE html>
@@ -27,24 +28,6 @@ $obj = json_decode(file_get_contents('https://flynn.boolean.careers/exercises/ap
         <div class="container-fluid d-flex justify-content-center">
             <div class="container d-flex align-items-center flex-column">
 
-                <!-- ***********  form  *********** -->
-
-                <div class="box-form container">
-                    <div class="container-fluid d-flex justify-content-center">     
-                        <div class="container">
-                            <form>
-                                <label class="text-white">Search for Type :</label>
-                                <select v-model="selected1" @change="showCD(selected1)">
-                                    <option value="All" select>All</option>
-                                    <?php foreach ($obj["response"] as $card) : ?>
-                                        <option class="<?=$card != $card ? '' : 'd-none'?>" value="<?= $card['genre']; ?> "><?= $card['genre']; ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- ***********  cards  *********** -->
 
                 <div class="Cardbox">         <!------------------------- loop  -->                               
@@ -57,9 +40,6 @@ $obj = json_decode(file_get_contents('https://flynn.boolean.careers/exercises/ap
                         </div>
                     <?php endforeach; ?>
                 </div>
-
-
-
             </div>
         </div>
     </main>
@@ -67,12 +47,3 @@ $obj = json_decode(file_get_contents('https://flynn.boolean.careers/exercises/ap
 </html>
 
 
-<?php
-
-
-
- 
-
-
-
-?>

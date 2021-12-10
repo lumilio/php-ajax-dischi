@@ -2,10 +2,7 @@
 
 
 
-main{
-    background-color: #1e2d3b;
-    height: calc(100vh - 45px);
-}
+
 
 header .container-fluid{
     background-color: #2e3a46;
@@ -15,36 +12,19 @@ header img{
     margin: 5px;
 }
 
-button{
-    margin: 20px;
+main{
+    background-color: #1e2d3b;
+    height: calc(100vh - 45px);
 }
+
+
 
 .Cardbox{
     display: flex;
-    margin-top: 10px;
+    margin-top: 50px;
     justify-content: center;
     flex-wrap: wrap;
 }
-.box-form{
-    margin-top: 30px;
-}
-.loading-box{
-    height: 75vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.loading-box h3{
-    color: white;
-}
-
-main select{
-    width: 250px;
-    margin: 5px;
-    margin-left: 30px;
-}
-
-
 
 .card-model {
     padding: 0.6rem;
